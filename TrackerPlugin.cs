@@ -24,6 +24,11 @@ namespace PoPTracker
         internal static string locationDir = Path.Combine(repoDataDir, "locations.csv");
         internal static string itemDir = Path.Combine(repoDataDir, "items.csv");
         internal static string pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private static readonly HashSet<EItemAcquisitionMode> ExcludedAcquisitionModes = new HashSet<EItemAcquisitionMode>
+        {
+            EItemAcquisitionMode.Init,
+            EItemAcquisitionMode.Regen,
+        };
 
         // Currency/bonus-tier items excluded from location logging entirely. 
         internal static readonly HashSet<EItemType> ExcludeFromLocationLog = new HashSet<EItemType>
@@ -322,12 +327,11 @@ namespace PoPTracker
         {
             static void Postfix(EItemType _itemType, int _amount, EItemAcquisitionMode _acquisitionMode)
             {
-                if (_acquisitionMode != EItemAcquisitionMode.Loot && _acquisitionMode != EItemAcquisitionMode.Shop && _acquisitionMode !=EItemAcquisitionMode.Quest)
+                if (ExcludedAcquisitionModes.Contains(_acquisitionMode))
                 {
-                    TrackLog.Log($"Skipping non-Loot/non-Shop/non-Quest grant: {_itemType}, Amount: {_amount}, Mode: {_acquisitionMode}");
+                    TrackLog.Log($"Skipping {_acquisitionMode} grant: {_itemType}, Amount: {_amount}");
                     return;
                 }
-
                 if (Plugin.ExcludeFromLocationLog.Contains(_itemType))
                 {
                     return;
@@ -373,9 +377,9 @@ namespace PoPTracker
 
             static void Postfix(EItemType _itemType, EItemAcquisitionMode _acquisitionMode)
             {
-                if (_acquisitionMode != EItemAcquisitionMode.Loot && _acquisitionMode != EItemAcquisitionMode.Quest)
+                if (ExcludedAcquisitionModes.Contains(_acquisitionMode))
                 {
-                    TrackLog.Log($"Skipping non-Loot unique grant: {_itemType}, Mode: {_acquisitionMode}");
+                    TrackLog.Log($"Skipping {_acquisitionMode} grant: {_itemType}");
                     return;
                 }
 
@@ -389,7 +393,7 @@ namespace PoPTracker
                 }
                 else
                 {
-                    TrackLog.Log($"Loot-mode AddUniqueItem with no pending location. Item: {_itemType}");
+                    TrackLog.Log($"{_acquisitionMode}-mode AddUniqueItem with no pending location. Item: {_itemType}");
                 }
             }
         }
