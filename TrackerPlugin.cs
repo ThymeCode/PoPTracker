@@ -373,7 +373,7 @@ namespace PoPTracker
 
             static void Postfix(EItemType _itemType, EItemAcquisitionMode _acquisitionMode)
             {
-                if (_acquisitionMode != EItemAcquisitionMode.Loot)
+                if (_acquisitionMode != EItemAcquisitionMode.Loot && _acquisitionMode != EItemAcquisitionMode.Quest)
                 {
                     TrackLog.Log($"Skipping non-Loot unique grant: {_itemType}, Mode: {_acquisitionMode}");
                     return;
