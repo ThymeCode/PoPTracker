@@ -322,9 +322,9 @@ namespace PoPTracker
         {
             static void Postfix(EItemType _itemType, int _amount, EItemAcquisitionMode _acquisitionMode)
             {
-                if (_acquisitionMode != EItemAcquisitionMode.Loot && _acquisitionMode != EItemAcquisitionMode.Shop)
+                if (_acquisitionMode != EItemAcquisitionMode.Loot && _acquisitionMode != EItemAcquisitionMode.Shop && _acquisitionMode !=EItemAcquisitionMode.Quest)
                 {
-                    TrackLog.Log($"Skipping non-Loot/non-Shop grant: {_itemType}, Amount: {_amount}, Mode: {_acquisitionMode}");
+                    TrackLog.Log($"Skipping non-Loot/non-Shop/non-Quest grant: {_itemType}, Amount: {_amount}, Mode: {_acquisitionMode}");
                     return;
                 }
 
