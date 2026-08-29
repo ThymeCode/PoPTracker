@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>PopTracker</AssemblyName>
+    <RootNamespace>PopTracker</RootNamespace>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <!-- ===================== CHANGE THIS PATH ===================== -->
+  <PropertyGroup>
+    <GameDir>C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\games\Prince of Persia The Lost Crown</GameDir>
+  </PropertyGroup>
+  <!-- =============================================================== -->
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.785" />
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-be.785" />
+    <PackageReference Include="Il2CppInterop.Runtime" Version="1.5.3" />
+    <PackageReference Include="Il2CppInterop.Common" Version="1.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>$(GameDir)\BepInEx\interop\Il2Cppmscorlib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2CppUnityEngine.CoreModule">
+      <HintPath>$(GameDir)\BepInEx\interop\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2CppAlkawa">
+      <HintPath>$(GameDir)\BepInEx\interop\Alkawa.Gameplay.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+        <Reference Include="Il2CppAlkawa.Engine">
+      <HintPath>$(GameDir)\BepInEx\interop\Alkawa.Engine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2CppAlkawa.ObjectRegister">
+      <HintPath>$(GameDir)\BepInEx\interop\Alkawa.ObjectRegister.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2CppUnityEngine.PhysicsModule">
+      <HintPath>$(GameDir)\BepInEx\interop\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CopyToPlugins" AfterTargets="Build">
+    <MakeDir Directories="$(GameDir)\BepInEx\plugins\PopTracker" Condition="!Exists('$(GameDir)\BepInEx\plugins\PopTracker')" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GameDir)\BepInEx\plugins\PopTracker\" />
+  </Target>
+</Project>
