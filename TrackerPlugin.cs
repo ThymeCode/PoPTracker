@@ -14,7 +14,7 @@ using System.Runtime.CompilerServices;
 
 namespace PoPTracker
 {
-    [BepInPlugin("com.thyme.poplostcrown.tracker", "PoP Lost Crown Tracker", "0.4.0")]
+    [BepInPlugin("com.thyme.poplostcrown.tracker", "PoP Lost Crown Tracker", "0.5.0")]
     public class Plugin : BasePlugin
     {
         internal static HashSet<string> trackedLocations;
@@ -234,6 +234,16 @@ namespace PoPTracker
                 TrackLog.Log($"CUTSCENE TRIGGERED: location='{key}'");
             }
         }
+        [HarmonyPatch(typeof(InteractiveElementLogic_TimelineLauncher), "TriggerLogic_Internal")]
+        public class TimelineLauncherTrigger_Patch
+        {
+            static void Postfix(InteractiveElementLogic_TimelineLauncher __instance, ETriggerLogicType _triggerType)
+            {
+                var key = LocationTracker.BuildKey(__instance.m_Owner);
+                LocationTracker.EnqueueLocation(key);
+                TrackLog.Log($"TIMELINE LAUNCHER TRIGGERED: location='{key}'");
+            }
+        }
 
         [HarmonyPatch(typeof(InteractiveElementLogic_CollectibleItem), "TriggerLogic_Internal")]
         public class TriggerLogic_Patch
@@ -254,6 +264,16 @@ namespace PoPTracker
                 var key = LocationTracker.BuildKey(__instance.m_Owner);
                 LocationTracker.EnqueueLocation(key);
                 TrackLog.Log($"SIMORGH FEATHER TRIGGERED: location='{key}'");
+            }
+        }
+        //[HarmonyPatch(typeof(InteractiveElementLogic_PrepareVideo), "TriggerLogic_Internal")]
+        public class PrepareVideoTrigger_Patch
+        {
+            static void Postfix(InteractiveElementLogic_PrepareVideo __instance, ETriggerLogicType _triggerType)
+            {
+                var key = LocationTracker.BuildKey(__instance.m_Owner);
+                LocationTracker.EnqueueLocation(key);
+                TrackLog.Log($"PREPARE VIDEO TRIGGERED: location='{key}'");
             }
         }
 

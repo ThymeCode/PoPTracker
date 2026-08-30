@@ -28,3 +28,5 @@ Once you're done with a session, push your changes to your fork and request a me
 
 ## NOTE:
 If you notice an item *isn't* tracked, make an issue with the item type, general game location, and how you acquired it. If you need any help or have any questions, ask it in the Archipelago Discord server's "Prince of Persia: The Lost Crown" thread.
+
+Also, the CSVs for the items and locations are loaded into memory on launch of the game. So if you manually edit the files while the game is running, this will not be known by the plugin. Restart the game after any manual changes to ensure the plugin's items and locations are up to date.

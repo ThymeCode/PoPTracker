@@ -1,6 +1,6 @@
 Location,itemID,Acquisition,Hash,Notes
 TRG_Interactor_Conversation_Varham_PostFight@(139.62, 16.21, 0.00),HealingPotion,Loot,,
-TRG_Interactor_PotionLoot@(-83.59, -26.44, 0.00),HealingPotion,Loot,Not an item but a healing refresh,
+TRG_Interactor_PotionLoot@(-83.59, -26.44, 0.00),HealingPotion,Loot,,Not an item but a healing refresh
 TRG_KIN_THO_CIN_Palace_Ceremony@(25.50, 0.00, 0.00),KeyItem_ThomyrisScarf,Loot,,
 TRG_IASpawn@(106.34, 4.49, 0.00),FocusPiercingAttack,Ability,,
 TRG_DIAL_LittleGirlMeeting@(40.50, -3.00, 0.00),MiniMap,Ability,,
@@ -19,8 +19,8 @@ NPC_ShopKeeper_Cartographer Old_Lady Variant@(161.72, 37.50, 2.00),CollectorToke
 NPC_ShopKeeper_Cartographer Old_Lady Variant@(161.72, 37.50, 2.00),StoneOfKnowledge_Poison,Shop,,
 NPC_ShopKeeper_Cartographer Old_Lady Variant@(161.72, 37.50, 2.00),GearUpgrade_PotionCount_PackShop1,ShopUpgrade,,
 NPC_ShopKeeper_Cartographer Old_Lady Variant@(161.72, 37.50, 2.00),GearUpgrade_PotionHealingEffect_PackShop1,ShopUpgrade,,
-NPC_ChallengeGiver_Artaban@(187.50, 53.50, 2.00),Vision,Ability,Not an actual item,
-NPC_ChallengeGiver_Artaban@(187.50, 53.50, 2.00),MiniMap,Ability,Not an actual item,
+NPC_ChallengeGiver_Artaban@(187.50, 53.50, 2.00),Vision,Ability,,Not an actual item
+NPC_ChallengeGiver_Artaban@(187.50, 53.50, 2.00),MiniMap,Ability,,Not an actual item
 TRIG_Collectible@(-14.00, -5.50, 0.50),QuestItem_FrescoElement,Loot,,
 PFB_GPE_QuestItem_DogTagLostWarrior@(-231.50, -15.19, 0.75),QuestItem_DogTagLostWarrior_Nojan,Loot,,LootManager spawn with no hash captured (revisit/reload case)
 GPE_HaomaFragment_ToSpawn@(333.26, -12.46, 1.25),HaomaFragment,Loot,429188177,
@@ -32,3 +32,6 @@ PFB_GPE_Token_ToSpawnByLootManager@(~-54.01, -33.75, 0.22),CollectorToken,Loot,8
 PFB_GPE_QuestItem_DogTagLostWarrior@(-54.10, -34.96, 0.75),QuestItem_DogTagLostWarrior_01,Loot,836172696,
 PFB_GPE_LoreItem_24_ErlikTusk@(21.66, -18.75, 0.00),LoreItem_24_ErlikTusk,Loot,,
 NPC_QuestGiver_BruteCanon_Variant@(64.41, -3.50, 1.00),HaomaFragment,Quest,,
+FPB_GPE_VisionUpgradePack_FromChest(Clone)@(6.50, 6.54, 0.25),VisionSlots,Loot,,
+FPB_GPE_VisionUpgradePack_FromChest(Clone)@(6.50, 6.54, 0.25),GearUpgrade_VisionPackChest,Loot,1831099548,Probably will combine with above
+TRG_HYR_AUT_CIN_Reward_Bow@(17.50, 5.00, 0.00),Bow,Ability,,
