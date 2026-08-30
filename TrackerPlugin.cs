@@ -349,28 +349,38 @@ namespace PoPTracker
             {
                 if (ExcludedAcquisitionModes.Contains(_acquisitionMode))
                 {
-                    TrackLog.Log($"Skipping {_acquisitionMode} grant: {_itemType}, Amount: {_amount}");
+                    TrackLog.Log($"Skipping {_acquisitionMode} grant: {_itemType}");
                     return;
                 }
+        
                 if (Plugin.ExcludeFromLocationLog.Contains(_itemType))
                 {
                     return;
                 }
-
+        
                 var hash = "";
+                var locationKey = LocationTracker.PeekLocation();
+        
+                // If this item was seen spawning via LootManager with a real hash, upgrade
+                // the location key from name@position (which varies per-kill) to
+                // name#hash (which is stable across kills of the same source).
                 if (Plugin.PendingSpawnHashes.TryGetValue(_itemType, out var h))
                 {
                     hash = h.ToString();
                     Plugin.PendingSpawnHashes.Remove(_itemType);
+        
+                    if (locationKey != null)
+                    {
+                        locationKey = $"{ExtractName(locationKey)}#{hash}";
+                    }
                 }
-
+        
                 var notes = "";
                 if (hash == "" && Plugin.ItemsSeenViaLootManager.Contains(_itemType))
                 {
                     notes = "LootManager spawn with no hash captured (revisit/reload case)";
                 }
-
-                var locationKey = LocationTracker.PeekLocation();
+        
                 if (locationKey != null)
                 {
                     var locationData = $"{locationKey},{_itemType},{_acquisitionMode},{hash},{notes}";
@@ -380,8 +390,16 @@ namespace PoPTracker
                 }
                 else
                 {
-                    TrackLog.Log($"Loot-mode AddItem with no pending location. Item: {_itemType}, Amount: {_amount}");
+                    TrackLog.Log($"{_acquisitionMode} AddItem with no pending location. Item: {_itemType}, Amount: {_amount}");
                 }
+            }
+        
+            // Extracts just the "name" portion from a "name@(x, y, z)" key, so it can be
+            // rebuilt as "name#hash" instead when a stable hash is available.
+            static string ExtractName(string key)
+            {
+                var atIndex = key.IndexOf('@');
+                return atIndex >= 0 ? key.Substring(0, atIndex) : key;
             }
         }
 

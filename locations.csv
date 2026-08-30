@@ -35,3 +35,5 @@ NPC_QuestGiver_BruteCanon_Variant@(64.41, -3.50, 1.00),HaomaFragment,Quest,,
 FPB_GPE_VisionUpgradePack_FromChest(Clone)@(6.50, 6.54, 0.25),VisionSlots,Loot,,
 FPB_GPE_VisionUpgradePack_FromChest(Clone)@(6.50, 6.54, 0.25),GearUpgrade_VisionPackChest,Loot,1831099548,Probably will combine with above
 TRG_HYR_AUT_CIN_Reward_Bow@(17.50, 5.00, 0.00),Bow,Ability,,
+PFB_GPE_StoneOfKnowledge_BigChest_PrayerStone Variant(Clone)#1193518129,StoneOfKnowledge_Prayer,Loot,1193518129,
+PFB_GPE_StoneOfKnowledge_BigChest_PrayerStone Variant(Clone)@(25.44, 3.51, 0.25),StoneOfKnowledge_Prayer,Loot,,LootManager spawn with no hash captured (revisit/reload case)
