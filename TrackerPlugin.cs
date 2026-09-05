@@ -37,6 +37,11 @@ namespace PoPTracker
             EItemType.SmallHealthDrop,
             EItemType.Arrow,
         };
+        internal static readonly HashSet<EPlayerUnlockableAbility> ExcludedAbilities = new HashSet<EPlayerUnlockableAbility>
+        {
+            EPlayerUnlockableAbility.Vision,
+            EPlayerUnlockableAbility.MiniMap,
+        };
 
         // Hashes captured from LootManager.SpawnLootItem, consumed by AddItem_Patch
         // to give dynamically-spawned drops (boss/miniboss loot) a stable identity
@@ -341,6 +346,31 @@ namespace PoPTracker
                 }
             }
         }
+        [HarmonyPatch]
+        public class FastTravelUnlock_Tracking_Patch
+        {
+            static IEnumerable<MethodBase> TargetMethods()
+            {
+                yield return AccessTools.Method(typeof(FastTravelManager), "UnlockFastTravel",
+                    new System.Type[] { typeof(FastTravelInstance) });
+                yield return AccessTools.Method(typeof(FastTravelManager), "UnlockFastTravel",
+                    new System.Type[] { typeof(PortalData) });
+            }
+
+            static void Postfix(MethodBase __originalMethod, object[] __args)
+            {
+                var argsStr = __args != null && __args.Length > 0
+                    ? string.Join(", ", __args.Select(a => a?.ToString() ?? "null"))
+                    : "(no args)";
+
+                TrackLog.Log($"FAST TRAVEL UNLOCKED via {__originalMethod.Name}({argsStr})");
+
+                if (__args != null && __args.Length > 0)
+                {
+                    Plugin.DumpProperties(__args[0], "UnlockFastTravel_arg");
+                }
+            }
+        }
 
         [HarmonyPatch(typeof(PlayerInventorySubComponent), "AddItem",
             new System.Type[] { typeof(EItemType), typeof(int), typeof(EItemAcquisitionMode) })]
@@ -403,6 +433,23 @@ namespace PoPTracker
                 return atIndex >= 0 ? key.Substring(0, atIndex) : key;
             }
         }
+        [HarmonyPatch(typeof(ActionLogic_UnlockFastTravel), "ApplyUnlock")]
+        public class ApplyUnlockFastTravel_Patch
+        {
+            static void Postfix(ActionLogic_UnlockFastTravel __instance, bool _unlockValue)
+            {
+                if (!_unlockValue) return;
+        
+                // m_config is inherited from QuestBase_ActionLogic — need to confirm the
+                // exact accessor name/cast, but this is the config passed into the
+                // constructor, which should be an ActionConfig_UnlockFastTravel.
+                var config = __instance.TryCast<ActionConfig_UnlockFastTravel>(); // placeholder, see note below
+                var portalData = config?.m_portalData;
+        
+                TrackLog.Log($"FAST TRAVEL UNLOCKED: portalData={portalData}");
+                Plugin.DumpProperties(portalData, "PortalData");
+            }
+        }
 
         // Unsure of what items this actually handles, but included for thoroughness.
         [HarmonyPatch]
@@ -445,6 +492,12 @@ namespace PoPTracker
                 if (!_unlock)
                 {
                     TrackLog.Log($"Skipping ability lock event: {_ability}, unlock={_unlock}");
+                    return;
+                }
+
+                if (ExcludedAbilities.Contains(_ability))
+                {
+                    TrackLog.Log($"Skipping repeatedly-toggled ability: {_ability}");
                     return;
                 }
 
