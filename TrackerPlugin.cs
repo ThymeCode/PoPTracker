@@ -35,6 +35,7 @@ namespace PoPTracker
         {
             EItemType.Crystal,
             EItemType.SmallHealthDrop,
+            EItemType.Arrow,
         };
 
         // Hashes captured from LootManager.SpawnLootItem, consumed by AddItem_Patch
