@@ -49,13 +49,51 @@ namespace PoPTracker
         internal static Dictionary<EItemType, int> PendingSpawnHashes = new Dictionary<EItemType, int>();
         internal static HashSet<EItemType> ItemsSeenViaLootManager = new HashSet<EItemType>();
 
-        public static void initializeTrackedData(HashSet<string> data, string filepath)
+        public static void initializeTrackedData(HashSet<string> data, string filepath, int expectedFields, Func<string[], string> makeKey)
         {
             string[] lines = File.ReadAllLines(filepath);
             foreach (var line in lines.Skip(1))
             {
-                data.Add(line);
+                if(string.IsNullOrWhiteSpace(line)) continue;
+                var fields = SplitCSVLine(line);
+                if (fields.Length < expectedFields)
+                {
+                    TrackLog.Log($"Skipping line in {filepath}: {line}");
+                    continue;
+                }
+                data.Add(makeKey(fields));
             }
+        }
+
+        public static string[] SplitCSVLine(string line)
+        {
+            List<string> fields = new List<string>();
+            bool inQuotes = false;
+            string currentField = "";
+
+            foreach (char c in line)
+            {
+                if (c == '"')
+                {
+                    inQuotes = !inQuotes;
+                }
+                else if (c == ',' && !inQuotes)
+                {
+                    fields.Add(currentField);
+                    currentField = "";
+                }
+                else
+                {
+                    currentField += c;
+                }
+            }
+            fields.Add(currentField); // Add the last field
+
+            return fields.ToArray();
+        }
+        public static string GetLocationKey(string location, string itemId, string acquisitionMode)
+        {
+            return location + "|" + itemId + "|" + acquisitionMode;
         }
 
         public override void Load()
@@ -66,18 +104,57 @@ namespace PoPTracker
             TrackLog.Init(pluginDir);
             TrackLog.Log("Tracker plugin loaded.");
 
-            initializeTrackedData(trackedLocations, locationDir);
-            initializeTrackedData(trackedItems, itemDir);
-            FuzzyLocationMatcher.SeedFromExistingLocations(trackedLocations);
+            initializeTrackedData(trackedLocations, locationDir, 7, fields => GetLocationKey(fields[1], fields[3], fields[4]));
+            initializeTrackedData(trackedItems, itemDir, 3, fields=> fields[1]);
+            FuzzyLocationMatcher.SeedFromExistingLocations(ReadColumnFromCSV(locationDir, 1));
+            nextLocationId = NextId(locationDir);
+            nextItemId = NextId(itemDir);
 
             var harmony = new Harmony("com.thyme.poplostcrown.tracker");
             harmony.PatchAll();
             TrackLog.Log("Harmony patches applied.");
         }
-
-        public static void addToFile(string data, string filepath, HashSet<string> trackedData)
+        private static int nextLocationId;
+        private static int nextItemId;
+    
+        // Highest Id already in column 0 of the file, plus one. An empty file (header only) gives 1.
+        private static int NextId(string filepath)
         {
-            if (trackedData.Add(data))
+            int max = 0;
+            foreach (var value in ReadColumnFromCSV(filepath, 0))
+                if (int.TryParse(value, out var id) && id > max) max = id;
+            return max + 1;
+        }
+    
+        // Wraps text in quotes so commas inside it can't split the field. Empty text stays empty.
+        private static string Quote(string s) => string.IsNullOrEmpty(s) ? "" : "\"" + s + "\"";
+    
+        public static void RecordItem(string itemId)
+        {
+            if (trackedItems.Contains(itemId)) return;
+            addToFile($"{nextItemId},{itemId},", itemId, itemDir, trackedItems);   // trailing comma = empty itemName
+            nextItemId++;
+        }
+    
+        public static void RecordLocation(string location, string itemId, string acquisition, string hash = "", string notes = "")
+        {
+            var key = GetLocationKey(location, itemId, acquisition);
+            if (!trackedLocations.Contains(key))
+            {
+                // Id, Location, LocationName (empty), itemID, Acquisition, Hash, Notes
+                var line = $"{nextLocationId},{Quote(location)},,{itemId},{acquisition},{hash},{Quote(notes)}";
+                addToFile(line, key, locationDir, trackedLocations);
+                nextLocationId++;
+            }
+            else
+            {
+                TrackLog.Log($"Already tracked: {location} -> {itemId} ({acquisition})");
+            }
+            RecordItem(itemId);   // the old code logged the item on every pickup, so keep that
+        }
+        public static void addToFile(string data, string key, string filepath, HashSet<string> trackedData)
+        {
+            if (trackedData.Add(key))
             {
                 TrackLog.Log($"Adding new data to {filepath}: {data}");
                 WriteGameDataToCSV.WriteToCSV(filepath, data);
@@ -106,6 +183,21 @@ namespace PoPTracker
                 }
                 type = type.BaseType;
             }
+        }
+        public static List<string> ReadColumnFromCSV(string filepath, int columnIndex)
+        {
+            var lines = File.ReadAllLines(filepath);
+            var columnValues = new List<string>();
+            foreach (var line in lines.Skip(1)) // Skip header
+            {
+                if(string.IsNullOrWhiteSpace(line)) continue;
+                var fields = SplitCSVLine(line);
+                if (fields.Length > columnIndex)
+                {
+                    columnValues.Add(fields[columnIndex]);
+                }
+            }
+            return columnValues;
         }
 
         // Tracks which physical location(s) recently fired a trigger, so the
@@ -201,11 +293,9 @@ namespace PoPTracker
             // Parses existing locations.csv rows matching jittered name patterns,
             // so positions already recorded in prior sessions are respected rather
             // than treated as new on next load.
-            public static void SeedFromExistingLocations(HashSet<string> existingRows)
-            {
-                foreach (var row in existingRows)
+            public static void SeedFromExistingLocations(List<string> existingLocations){
+                foreach (var locationPart in existingLocations)
                 {
-                    var locationPart = row.Split(',')[0]; // "Name@(x, y, z)"
                     var atIndex = locationPart.IndexOf('@');
                     if (atIndex < 0) continue;
 
@@ -326,10 +416,9 @@ namespace PoPTracker
                     var itemType = list[i]?.m_item?.m_itemId;
                     if (itemType == null) continue;
 
-                    var locationData = $"{shopKey},{itemType},{acquisitionLabel},,";
-                    var itemData = $"{itemType}";
-                    Plugin.addToFile(locationData, Plugin.locationDir, Plugin.trackedLocations);
-                    Plugin.addToFile(itemData, Plugin.itemDir, Plugin.trackedItems);
+                    //var locationData = $"{shopKey},{itemType},{acquisitionLabel},,";
+                    //var itemData = $"{itemType}";
+                    RecordLocation(shopKey, itemType.Value.ToString(), acquisitionLabel);
                 }
             }
         }
@@ -346,7 +435,7 @@ namespace PoPTracker
                 }
             }
         }
-        [HarmonyPatch]
+        //[HarmonyPatch]
         public class FastTravelUnlock_Tracking_Patch
         {
             static IEnumerable<MethodBase> TargetMethods()
@@ -414,10 +503,7 @@ namespace PoPTracker
 
                 if (locationKey != null)
                 {
-                    var locationData = $"{locationKey},{_itemType},{_acquisitionMode},{hash},{notes}";
-                    var itemData = $"{_itemType}";
-                    Plugin.addToFile(locationData, Plugin.locationDir, Plugin.trackedLocations);
-                    Plugin.addToFile(itemData, Plugin.itemDir, Plugin.trackedItems);
+                    RecordLocation(locationKey, _itemType.ToString(), _acquisitionMode.ToString(), hash, notes);
                 }
                 else
                 {
@@ -433,14 +519,14 @@ namespace PoPTracker
                 return atIndex >= 0 ? key.Substring(0, atIndex) : key;
             }
         }
-        [HarmonyPatch(typeof(ActionLogic_UnlockFastTravel), "ApplyUnlock")]
+        //[HarmonyPatch(typeof(ActionLogic_UnlockFastTravel), "ApplyUnlock")]
         public class ApplyUnlockFastTravel_Patch
         {
             static void Postfix(ActionLogic_UnlockFastTravel __instance, bool _unlockValue)
             {
                 if (!_unlockValue) return;
         
-                // m_config is inherited from QuestBase_ActionLogic — need to confirm the
+                // m_config is inherited from QuestBase_ActionLogic. Need to confirm the
                 // exact accessor name/cast, but this is the config passed into the
                 // constructor, which should be an ActionConfig_UnlockFastTravel.
                 var config = __instance.TryCast<ActionConfig_UnlockFastTravel>(); // placeholder, see note below
@@ -472,10 +558,9 @@ namespace PoPTracker
                 var locationKey = LocationTracker.PeekLocation();
                 if (locationKey != null)
                 {
-                    var locationData = $"{locationKey},{_itemType},{_acquisitionMode},,";
-                    var itemData = $"{_itemType}";
-                    Plugin.addToFile(locationData, Plugin.locationDir, Plugin.trackedLocations);
-                    Plugin.addToFile(itemData, Plugin.itemDir, Plugin.trackedItems);
+                    //var locationData = $"{locationKey},{_itemType},{_acquisitionMode},,";
+                    //var itemData = $"{_itemType}";
+                    RecordLocation(locationKey, _itemType.ToString(), _acquisitionMode.ToString());
                 }
                 else
                 {
@@ -504,10 +589,7 @@ namespace PoPTracker
                 var locationKey = LocationTracker.PeekLocation();
                 if (locationKey != null)
                 {
-                    var locationData = $"{locationKey},{_ability},Ability,,";
-                    var itemData = $"{_ability}";
-                    Plugin.addToFile(locationData, Plugin.locationDir, Plugin.trackedLocations);
-                    Plugin.addToFile(itemData, Plugin.itemDir, Plugin.trackedItems);
+                    RecordLocation(locationKey, _ability.ToString(), "Ability");
                 }
                 else
                 {

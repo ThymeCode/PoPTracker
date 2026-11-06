@@ -9,11 +9,11 @@ namespace PoPTracker
         {
             if (!File.Exists(filepath1))
             {
-                WriteToCSV(filepath1, "Location,itemID,Acquisition");
+                WriteToCSV(filepath1, "Id,Location,LocationName,itemId,Acquisition,Hash,Notes");
             }
             if (!File.Exists(filepath2))
             {
-                WriteToCSV(filepath2, "itemID");
+                WriteToCSV(filepath2, "Id,itemId,itemName");
             }
         }
 
@@ -26,4 +26,4 @@ namespace PoPTracker
         }
         
     }
-}
+} 
