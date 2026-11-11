@@ -9,9 +9,9 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 8,"TRG_DIAL_LittleGirlMeeting@(40.50, -3.00, 0.00)",Farba Screenshot Upgrade?,GearUpgrade_VisionPackShop1,Loot,,? Need to recheck not sure if real
 9,"PFB_GPE_LoreItem_21_Mirror@(69.50, 0.50, 0.00)",Depths Mirror,LoreItem_21_Mirror,Loot,,
 10,"TRG_CIT_LOW_DIA_The_MapTeller_Talk_01_A@(160.50, 37.50, 0.00)",Shopkeeper Blessing Amulet Gift,StoneOfKnowledge_Life,Loot,,
-11,"PFB_GPE_FocusAbility_WindSlah Variant@(-36.25, 13.00, 0.00)",Artaban Basic Training Reward,FocusWindSlashAttack,Ability,,
-12,"FPB_GPE_DamascusOre_FromChest(Clone)@(29.00, 16.04, 0.25)",,DamascusOre,Loot,2095780249,? Need to recheck what chest this is. Should be the one by the shop
-13,"PFB_GPE_Token@(~20.91, -15.04, 0.00)",,CollectorToken,Loot,,? Need to recheck.
+11,"PFB_GPE_FocusAbility_WindSlah Variant@(-36.25, 13.00, 0.00)",Depths Winds of Sistan Pickup,FocusWindSlashAttack,Ability,,
+12,"FPB_GPE_DamascusOre_FromChest(Clone)@(29.00, 16.04, 0.25)",Depths Damascus Chest,DamascusOre,Loot,2095780249,? Need to recheck what chest this is. Should be the one by the shop
+13,"PFB_GPE_Token@(~20.91, -15.04, 0.00)",Depths Xerxes Coin 1,CollectorToken,Loot,,? Need to recheck.
 14,"TRIG_Collectible@(-14.00, -5.50, 0.50)",Lower City Sand Jar 1 (Saws),QuestItem_FrescoElement,Loot,,
 15,"PFB_GPE_QuestItem_DogTagLostWarrior@(-231.50, -15.19, 0.75)",Lower City Corpse Dog Tag Pickup,QuestItem_DogTagLostWarrior_Nojan,Loot,,LootManager spawn with no hash captured (revisit/reload case)
 16,"GPE_HaomaFragment_ToSpawn@(333.26, -12.46, 1.25)",Lower City Undead Prisoner Drop,HaomaFragment,Loot,429188177,Location can change need to use hash or default
@@ -26,11 +26,11 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 25,"FPB_GPE_VisionUpgradePack_FromChest(Clone)@(6.50, 6.54, 0.25)",Sunken Harbor Memory Shard Chest (From Forest),GearUpgrade_VisionPackChest,Loot,1831099548,Probably will combine with above. This is probably the real item
 26,"TRG_HYR_AUT_CIN_Reward_Bow@(17.50, 5.00, 0.00)",Forest Bow Gift,Bow,Ability,,
 27,PFB_GPE_StoneOfKnowledge_BigChest_PrayerStone Variant(Clone)#1193518129,Forest Elrik Drop,StoneOfKnowledge_Prayer,Loot,1193518129,Need to recheck. Should be Wolfbride amulet.
-28,"PFB_GPE_StoneOfKnowledge_BigChest_PrayerStone Variant(Clone)@(25.44, 3.51, 0.25)",,StoneOfKnowledge_Prayer,Loot,,LootManager spawn with no hash captured (revisit/reload case)
+28,"PFB_GPE_StoneOfKnowledge_BigChest_PrayerStone Variant(Clone)@(25.44, 3.51, 0.25)",Dupe Forest Elrik Drop,StoneOfKnowledge_Prayer,Loot,,LootManager spawn with no hash captured (revisit/reload case)
 29,"PFB_GPE_LoreItem_54_TheEmbraceofAthra@(75.50, 5.23, 0.00)",Forest Embrace of Athra Lore,LoreItem_54_TheEmbraceofAthra,Loot,,
 30,"NPC_ShopKeeper_Cartographer Young_Child Map Seller@(67.68, -4.50, 1.00)",Forest Fariba Map Purchase,SubMap_HYR_AUT,Shop,,
 31,GPE_HaomaFragment_ToSpawn#527506480,Forest Red Grass Chest,HaomaFragment,Loot,527506480,Red Grass chest. Needs bow?
-32,"TRG_HYR_AUT_DIA_Menolias@(37.50, 19.00, 0.00)",Menolias Forest Chakram Gift,Chakram,Ability,,
+32,"TRG_HYR_AUT_DIA_Menolias@(37.50, 19.00, 0.00)",Forest Menolias Chakram Gift,Chakram,Ability,,
 33,"TRIG_Collectible@(-17.00, 18.50, 0.50)",Forest Sand Jar 2 (Post-Menolias),QuestItem_FrescoElement,Loot,,
 34,"PFB_GPE_Token@(~-11.93, 19.45, -0.00)",Forest Xerxes Coin 2 (Near Menolias Sand Jar),CollectorToken,Loot,,
 35,"FPB_GPE_DamascusOre_ToInstanciate@(35.50, 13.00, 0.00)",Lower City Chakram Puzzle (Damascus Ore),DamascusOre,Loot,,
@@ -40,14 +40,14 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 39,PFB_GPE_StoneOfKnowledge_BigChest_HunterStone Variant(Clone)#1633624176,Lower City Bow Puzzle Chest,StoneOfKnowledge_Hunter,Loot,1633624176,
 40,"NPC_ShopKeeper_Cartographer Young_Child Map Seller@(47.50, 46.00, 1.00)",Lower City Fariba Map Purchase,SubMap_CIT_LOW,Shop,,
 41,PFB_GPE_QuestItem_KahevaRawOre(Clone)#549066216,Lower City Raw Ore Pickup,QuestItem_KahevaRawOre,Loot,549066216,
-42,GPE_HaomaFull#2037771100,Lower City Jahandar Drop,HaomaFragment,Loot,2037771100,
+42,GPE_HaomaFull#2037771100,Lower City Jahandar Drop,HaomaFragment,Loot,2037771100,Amount = 4 for full soma tree flower
 43,"GPE_HaomaFull@(9.94, 3.54, 1.25)",Lower City Jahandar Drop Dupe,HaomaFragment,Loot,,LootManager spawn with no hash captured (revisit/reload case)
 44,"TRG_CIT_LOW_CIN_Reward_Airdash@(27.52, 31.65, 0.00)",Lower City Simurgh Feather (Dash),AirDash,Ability,,
-45,PFB_GPE_StoneOfKnowledge_BigChest_CelestialStone Variant(Clone)#1252447295,,StoneOfKnowledge_Celestial,Loot,1252447295,Need to recheck? Might be Ore quest reward
+45,PFB_GPE_StoneOfKnowledge_BigChest_CelestialStone Variant(Clone)#1252447295,Lower City Four Royal Stars Chest,StoneOfKnowledge_Celestial,Loot,1252447295,Need to recheck? Might be Ore quest reward
 46,"PFB_GPE_LoreItem_18_ArchitecturalDrawings@(75.50, 2.50, 0.00)",Upper City Architectural Drawings Lore,LoreItem_18_ArchitecturalDrawings,Loot,,
 47,"TRIG_Collectible@(-22.50, -8.00, 0.50)",Lower City Sand Jar 3 (Near Dash Lock),QuestItem_FrescoElement,Loot,,"Need to recheck, but should be correct"
 48,"PFB_GPE_LoreItem_47_Missive_01@(-27.50, -13.00, 0.00)",Lower City Missive 1 Lore,LoreItem_47_Missive_01,Loot,,
-49,PFB_GPE_StoneOfKnowledge_BigChest_TowerStone Variant(Clone)#682607729,,StoneOfKnowledge_Tower,Loot,682607729,Need to recheck? Might be Rukhsana's Gift
+49,PFB_GPE_StoneOfKnowledge_BigChest_TowerStone Variant(Clone)#682607729,Lower City Rukshana's Gift Amulet Chest,StoneOfKnowledge_Tower,Loot,682607729,Need to recheck? Might be Rukhsana's Gift
 50,"PFB_GPE_Token_1@(~-162.64, 37.22, 0.00)",Lower City Xerxes Coin 3 (Breakable Wall Dash Challenge),CollectorToken,Loot,,
 51,"PFB_GPE_LoreItem_17_ArtisanToolCarpetWeavers@(30.00, 34.50, 0.75)",Lower City Artisan Tools - Carpet Weaver Lore,LoreItem_17_ArtisanToolCarpetWeavers,Loot,,
 52,"TRG_CIT_LOW_DIA_Vahram_Looks_Strange_AfterFight@(-3.00, 2.00, 0.00)",Lower City Anahita Guard Fight Reward,StoneOfKnowledge_ExtendedHits,Loot,,Blade Dancer Amulet
@@ -59,7 +59,7 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 58,"PFB_GPE_LoreItem_09_ChildToy@(-4.00, 24.00, 0.00)",Depths Child Toy Lore,LoreItem_09_ChildToy,Loot,,
 59,"PFB_GPE_LoreItem_37_DroppedLocket@(13.67, -19.86, 0.00)",Depths Locket Lore,LoreItem_37_DroppedLocket,Loot,,
 60,FPB_GPE_DamascusOre_FromChest(Clone)#-112876369,Depths Damascuis Chest (Spinning Spikes Platforming),DamascusOre,Loot,-112876369,
-61,"PFB_GPE_Token_1@(~9.25, -9.23, 0.00)",Depths Xerxes Coin 1 (Slide puzzle),CollectorToken,Loot,,
+61,"PFB_GPE_Token_1@(~9.25, -9.23, 0.00)",Depths Xerxes Coin 2 (Slide puzzle),CollectorToken,Loot,,
 62,PFB_GPE_QuestItem_DogTagLostWarrior#-2040978,Depths Lost Warrior Dog Tag,QuestItem_DogTagLostWarrior_06,Loot,-2040978,Likely has a xerxes coin right next to it overlapping
 63,PFB_GPE_Token_ToSpawnByLootManager#-2040978,Depths Lost Warrior Xerxes Coin,CollectorToken,Loot,-2040978,
 64,"TRIG_Collectible@(-58.00, 8.50, 0.50)",Depths Sand Jar 1,QuestItem_FrescoElement,Loot,,Need to check exactly which one. Should be what is labelled as the first in the Path to the Sand Prison IGN guide

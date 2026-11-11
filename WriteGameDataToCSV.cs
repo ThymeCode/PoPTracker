@@ -13,7 +13,7 @@ namespace PoPTracker
             }
             if (!File.Exists(filepath2))
             {
-                WriteToCSV(filepath2, "Id,itemId,itemName");
+                WriteToCSV(filepath2, "Id,itemId,itemName,amount");
             }
         }
 

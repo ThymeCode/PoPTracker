@@ -11,7 +11,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using System.Runtime.CompilerServices;
-
+using Alkawa.Gameplay.Player.Components;
 namespace PoPTracker
 {
     [BepInPlugin("com.thyme.poplostcrown.tracker", "PoP Lost Crown Tracker", "0.5.2")]
@@ -24,6 +24,7 @@ namespace PoPTracker
         internal static string locationDir = Path.Combine(repoDataDir, "locations.csv");
         internal static string itemDir = Path.Combine(repoDataDir, "items.csv");
         internal static string pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static bool DebugGranting;
         private static readonly HashSet<EItemAcquisitionMode> ExcludedAcquisitionModes = new HashSet<EItemAcquisitionMode>
         {
             EItemAcquisitionMode.Init,
@@ -95,6 +96,10 @@ namespace PoPTracker
         {
             return location + "|" + itemId + "|" + acquisitionMode;
         }
+        public static string GetItemKey(string itemId, string amount)
+        {
+            return itemId + "|" + amount;
+        }
 
         public override void Load()
         {
@@ -105,8 +110,7 @@ namespace PoPTracker
             TrackLog.Log("Tracker plugin loaded.");
 
             initializeTrackedData(trackedLocations, locationDir, 7, fields => GetLocationKey(fields[1], fields[3], fields[4]));
-            initializeTrackedData(trackedItems, itemDir, 3, fields=> fields[1]);
-            FuzzyLocationMatcher.SeedFromExistingLocations(ReadColumnFromCSV(locationDir, 1));
+            initializeTrackedData(trackedItems, itemDir, 4, fields => GetItemKey(fields[1], fields[3]));            FuzzyLocationMatcher.SeedFromExistingLocations(ReadColumnFromCSV(locationDir, 1));
             nextLocationId = NextId(locationDir);
             nextItemId = NextId(itemDir);
 
@@ -129,14 +133,16 @@ namespace PoPTracker
         // Wraps text in quotes so commas inside it can't split the field. Empty text stays empty.
         private static string Quote(string s) => string.IsNullOrEmpty(s) ? "" : "\"" + s + "\"";
     
-        public static void RecordItem(string itemId)
+        public static void RecordItem(string itemId, int amount)
         {
-            if (trackedItems.Contains(itemId)) return;
-            addToFile($"{nextItemId},{itemId},", itemId, itemDir, trackedItems);   // trailing comma = empty itemName
+            var key = GetItemKey(itemId, amount.ToString());
+            if (trackedItems.Contains(key)) return;
+            addToFile($"{nextItemId},{itemId},,{amount}", key, itemDir, trackedItems);
             nextItemId++;
         }
     
-        public static void RecordLocation(string location, string itemId, string acquisition, string hash = "", string notes = "")
+        public static void RecordLocation(string location, string itemId, string acquisition,
+            string hash = "", string notes = "", int amount = 1)
         {
             var key = GetLocationKey(location, itemId, acquisition);
             if (!trackedLocations.Contains(key))
@@ -150,7 +156,7 @@ namespace PoPTracker
             {
                 TrackLog.Log($"Already tracked: {location} -> {itemId} ({acquisition})");
             }
-            RecordItem(itemId);   // the old code logged the item on every pickup, so keep that
+            RecordItem(itemId, amount); 
         }
         public static void addToFile(string data, string key, string filepath, HashSet<string> trackedData)
         {
@@ -467,6 +473,7 @@ namespace PoPTracker
         {
             static void Postfix(EItemType _itemType, int _amount, EItemAcquisitionMode _acquisitionMode)
             {
+                if (Plugin.DebugGranting) return;
                 if (ExcludedAcquisitionModes.Contains(_acquisitionMode))
                 {
                     TrackLog.Log($"Skipping {_acquisitionMode} grant: {_itemType}");
@@ -503,7 +510,7 @@ namespace PoPTracker
 
                 if (locationKey != null)
                 {
-                    RecordLocation(locationKey, _itemType.ToString(), _acquisitionMode.ToString(), hash, notes);
+                    RecordLocation(locationKey, _itemType.ToString(), _acquisitionMode.ToString(), hash, notes, _amount);
                 }
                 else
                 {
@@ -549,6 +556,7 @@ namespace PoPTracker
 
             static void Postfix(EItemType _itemType, EItemAcquisitionMode _acquisitionMode)
             {
+                if (Plugin.DebugGranting) return;
                 if (ExcludedAcquisitionModes.Contains(_acquisitionMode))
                 {
                     TrackLog.Log($"Skipping {_acquisitionMode} grant: {_itemType}");
@@ -595,6 +603,55 @@ namespace PoPTracker
                 {
                     TrackLog.Log($"UnlockAbility with no pending location. Ability: {_ability}");
                 }
+            }
+        }
+        [HarmonyPatch(typeof(PlayerComponent), nameof(PlayerComponent.OnAnimatorMoveProxy))]
+        public class DebugGrant_Patch
+        {
+            static float nextCheck;
+            static readonly string path = Path.Combine(Plugin.pluginDir, "grant.txt");
+
+            static void Postfix(PlayerComponent __instance)
+            {
+                if (__instance.IsPlayerDoppleganger) return;
+                if (Time.unscaledTime < nextCheck) return;
+                nextCheck = Time.unscaledTime + 1f;
+                try
+                {
+                    if (!File.Exists(path)) return;
+                    var text = File.ReadAllText(path).Trim();
+                    if (text.Length == 0) return;
+                    if (text == "pos")
+                    {
+                        File.WriteAllText(path, "");
+                        var p = __instance.gameObject.transform.position;
+                        TrackLog.Log($"PLAYER POS: ({p.x:F2}, {p.y:F2}, {p.z:F2})");
+                        return;
+                    }
+                    File.WriteAllText(path, "");   // clear first, so a failure can't repeat the grant every second
+
+                    // "ItemName" or "ItemName amount"
+                    var parts = text.Split(new[] { ' ', ',', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    int amount = 1;
+                    if (parts.Length > 1 && (!int.TryParse(parts[1], out amount) || amount < 1))
+                    {
+                        TrackLog.Log($"Debug grant: bad amount '{parts[1]}'");
+                        return;
+                    }
+                    if (!Enum.TryParse<EItemType>(parts[0], out var item))
+                    {
+                        TrackLog.Log($"Debug grant: unknown item '{parts[0]}'");
+                        return;
+                    }
+                    Plugin.DebugGranting = true;
+                    try
+                    {
+                        TrackLog.Log($"Debug grant: {item} x{amount}");
+                        __instance.PlayerInventory.AddItem(item, amount, EItemAcquisitionMode.Loot);
+                    }
+                    finally { Plugin.DebugGranting = false; }
+                }
+                catch (Exception e) { TrackLog.Log($"Debug grant failed: {e.Message}"); }
             }
         }
 

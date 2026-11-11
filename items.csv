@@ -1,74 +1,75 @@
-id,itemId,itemName
-1,HealingPotion,Progressive Healing Potion
-2,KeyItem_ThomyrisScarf,Thomyris Scarf (Lore)
-3,FocusPiercingAttack,Verethragna's Smite
-4,MiniMap,Map (Ability)
-5,MinimapEye,Eye of The Wanderer
-6,Vision,Memory (Ability)
-7,VisionSlots,Memory Shard
-8,GearUpgrade_VisionPackShop1,Memory Shard
-9,LoreItem_21_Mirror,Mirror (Lore)
-10,StoneOfKnowledge_Life,Blessing Amulet
-11,FocusWindSlashAttack,
-12,DamascusOre,
-13,CollectorToken,
-14,HaomaFragment,
-15,SeedOfKnowledge,
-16,StoneOfKnowledge_Poison,
-17,GearUpgrade_PotionCount_PackShop1,
-18,GearUpgrade_PotionHealingEffect_PackShop1,
-19,QuestItem_FrescoElement,
-20,QuestItem_DogTagLostWarrior_Nojan,
-21,WakWakHead_01_Kamil,
-22,FocusHeal,
-23,QuestItem_CannonBall,
-24,QuestItem_DogTagLostWarrior_01,
-25,LoreItem_24_ErlikTusk,
-26,GearUpgrade_VisionPackChest,
-27,StoneOfKnowledge_Prayer,
-28,Bow,
-29,LoreItem_54_TheEmbraceofAthra,
-30,SubMap_HYR_AUT,
-31,Chakram,
-32,LoreItem_57_TheHunterAndTheManEater,
-33,StoneOfKnowledge_Dauntless,
-34,ProgressionHint,
-35,StoneOfKnowledge_Hawk,
-36,StoneOfKnowledge_Steel,
-37,StoneOfKnowledge_Magnet,
-38,GearUpgrade_SwordPlus1,
-39,GearUpgrade_BowPlus1,
-40,GearUpgrade_QuiverPlus1,
-41,StoneOfKnowledge_Life2,
-42,StoneOfKnowledge_Dauntless2,
-43,StoneOfKnowledge_Prayer2,
-44,GearUpgrade_SwordPlus2,
-45,StoneOfKnowledge_Hunter,
-46,SubMap_CIT_LOW,
-47,QuestItem_KahevaRawOre,
-48,StoneOfKnowledge_ShieldOfMithra,
-49,GearUpgrade_BowPlus2,
-50,StoneOfKnowledge_Hunter2,
-51,StoneOfKnowledge_ShieldOfMithra2,
-52,AirDash,
-53,StoneOfKnowledge_Celestial,
-54,LoreItem_18_ArchitecturalDrawings,
-55,StoneOfKnowledge_Celestial2,
-56,LoreItem_47_Missive_01,
-57,StoneOfKnowledge_Tower,
-58,LoreItem_17_ArtisanToolCarpetWeavers,
-59,StoneOfKnowledge_ExtendedHits,
-60,WakWakHead_05_Karim,
-61,StoneOfKnowledge_Phoenix,
-62,SubMap_SAC_SAC_Part1,
-63,StoneOfKnowledge_Brave,
-64,LoreItem_09_ChildToy,
-65,LoreItem_37_DroppedLocket,
-66,QuestItem_DogTagLostWarrior_06,
-67,QuestItem_ElevatorVIPKey,
-68,StoneOfKnowledge_Monk,
-69,StoneOfKnowledge_EvilEye,
-70,StoneOfKnowledge_DarkEye,
-71,LoreItem_13_PersianTale,
-72,FocusSuperShotLaser,
-73,Teleport,
+id,itemId,itemName,amount
+1,HealingPotion,Progressive Healing Potion,1
+2,KeyItem_ThomyrisScarf,Thomyris Scarf (Lore),1
+3,FocusPiercingAttack,Verethragna's Smite,1
+4,MiniMap,Map (Ability),1
+5,MinimapEye,Eye of The Wanderer,1
+6,Vision,Memory (Ability),1
+7,VisionSlots,Memory Shard,1
+8,GearUpgrade_VisionPackShop1,Progressive Memory Shard,1
+9,LoreItem_21_Mirror,Mirror (Lore),1
+10,StoneOfKnowledge_Life,Blessing Amulet,1
+11,FocusWindSlashAttack,Wind of Sistan,1
+12,DamascusOre,Azure Damascus Ingot,1
+13,CollectorToken,Xerxes Coin,1
+14,HaomaFragment,Soma Tree Petal,1
+15,SeedOfKnowledge,Amulet Holder,1
+16,StoneOfKnowledge_Poison,Horned Viper Amulet,1
+17,GearUpgrade_PotionCount_PackShop1,Progressive Healing Potion,1
+18,GearUpgrade_PotionHealingEffect_PackShop1,Progressive Healing Potion Power,1
+19,QuestItem_FrescoElement,Spirited Sand Jar,1
+20,QuestItem_DogTagLostWarrior_Nojan,Insignia of Persepolis (Nojan),1
+21,WakWakHead_01_Kamil,Kamil Head,1
+22,FocusHeal,Bahman's Breath,1
+23,QuestItem_CannonBall,Cannonball,1
+24,QuestItem_DogTagLostWarrior_01,Insignia of Persepolis (1),1
+25,LoreItem_24_ErlikTusk,Erlik Tusk (Lore),1
+26,GearUpgrade_VisionPackChest,Progressive Memory Shard,1
+27,StoneOfKnowledge_Prayer,Wolf-Bride Amulet,1
+28,Bow,Progressive Bow,1
+29,LoreItem_54_TheEmbraceofAthra,The Embrace of Athra (Lore),1
+30,SubMap_HYR_AUT,Map (Hyrcanian Forest),1
+31,Chakram,Progressive Bow,1
+32,LoreItem_57_TheHunterAndTheManEater,The Hunter and The Man Eater (Lore),1
+33,StoneOfKnowledge_Dauntless,Progressive Arslan's Glory Amulet,1
+34,ProgressionHint,Progressive Hint,1
+35,StoneOfKnowledge_Hawk,Progressive Arash's Arrowhead Amulet,1
+36,StoneOfKnowledge_Steel,Progressive Mount Damavand Amulet,1
+37,StoneOfKnowledge_Magnet,Progressive Ecbatana Seal Amulet,1
+38,GearUpgrade_SwordPlus1,Progressive Sword,1
+39,GearUpgrade_BowPlus1,Progressive Bow Power,1
+40,GearUpgrade_QuiverPlus1,Progressive Quiver,1
+41,StoneOfKnowledge_Life2,Progressive Blessing Amulet,1
+42,StoneOfKnowledge_Dauntless2,Progressive Arslan's Glory Amulet,1
+43,StoneOfKnowledge_Prayer2,Progressive Wolf-Bride Amulet,1
+44,GearUpgrade_SwordPlus2,Progressive Sword,1
+45,StoneOfKnowledge_Hunter,Zurvan's Voice Amulet,1
+46,SubMap_CIT_LOW,Map (Lower City),1
+47,QuestItem_KahevaRawOre,Raw Ore,1
+48,StoneOfKnowledge_ShieldOfMithra,Shield of Mithra Amulet,1
+49,GearUpgrade_BowPlus2,Progressive Bow Power,1
+50,StoneOfKnowledge_Hunter2,Progressive Zurvan's Voice Amulet,1
+51,StoneOfKnowledge_ShieldOfMithra2,Progressive Shield of Mithra Amulet,1
+52,HaomaFragment,Soma Tree Flower,4
+53,AirDash,Rush of the Simurgh (Ability),1
+54,StoneOfKnowledge_Celestial,Four Royal Stars Amulet,1
+55,LoreItem_18_ArchitecturalDrawings,Architectural Drawings Lore,1
+56,StoneOfKnowledge_Celestial2,Progressive Four Royal Stars Amulet,1
+57,LoreItem_47_Missive_01,Missive 1 Lore,1
+58,StoneOfKnowledge_Tower,Rukhsana's Gift Amulet,1
+59,LoreItem_17_ArtisanToolCarpetWeavers,Artisan Tools - Carpet Weavers Lore,1
+60,StoneOfKnowledge_ExtendedHits,Blade Dancer Amulet,1
+61,WakWakHead_05_Karim,Karim Head,1
+62,StoneOfKnowledge_Phoenix,Dragon King Amulet,1
+63,SubMap_SAC_SAC_Part1,Map (Sacred Archives 1),1
+64,StoneOfKnowledge_Brave,Will of Rostam Amulet,1
+65,LoreItem_09_ChildToy,Child Toy Lore,1
+66,LoreItem_37_DroppedLocket,Dropped Locket Lore,1
+67,QuestItem_DogTagLostWarrior_06,Insignia of Persepolis (6),1
+68,QuestItem_ElevatorVIPKey,Lost Key,1
+69,StoneOfKnowledge_Monk,Starving Heart Amulet,1
+70,StoneOfKnowledge_EvilEye,Evil Eye Amulet,1
+71,StoneOfKnowledge_DarkEye,Eye of Destiny Amulet,1
+72,LoreItem_13_PersianTale,Persian Tale Lore,1
+73,FocusSuperShotLaser,Arash's Ray,1
+74,Teleport,Shadow of the Simurgh (Ability),1
