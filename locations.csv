@@ -36,11 +36,11 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 35,"FPB_GPE_DamascusOre_ToInstanciate@(35.50, 13.00, 0.00)",Lower City Chakram Puzzle (Damascus Ore),DamascusOre,Loot,,
 36,"PFB_GPE_LoreItem_57_TheHunterAndTheManEater@(101.00, 22.50, 0.00)",Lower City The Hunter and The Man Eater Lore,LoreItem_57_TheHunterAndTheManEater,Loot,,
 37,PFB_GPE_SeedOfKnowledge_FromChest(Clone)#-822170603,Lower City Amulet Upgrade Chest,SeedOfKnowledge,Loot,-822170603,
-38,"PFB_GPE_StoneOfKnowledge_BigChest_Dauntless Variant(Clone)@(17.29, 3.33, 0.25)",Lower City Prophecy Reward 1,StoneOfKnowledge_Dauntless,Loot,,First sand jar reward
+38,"PFB_GPE_StoneOfKnowledge_BigChest_Dauntless Variant(Clone)@(17.29, 3.33, 0.25)",Lower City Prophecy Reward (1),StoneOfKnowledge_Dauntless,Loot,,First sand jar reward
 39,PFB_GPE_StoneOfKnowledge_BigChest_HunterStone Variant(Clone)#1633624176,Lower City Bow Puzzle Chest,StoneOfKnowledge_Hunter,Loot,1633624176,
 40,"NPC_ShopKeeper_Cartographer Young_Child Map Seller@(47.50, 46.00, 1.00)",Lower City Fariba Map Purchase,SubMap_CIT_LOW,Shop,,
 41,PFB_GPE_QuestItem_KahevaRawOre(Clone)#549066216,Lower City Raw Ore Pickup,QuestItem_KahevaRawOre,Loot,549066216,
-42,GPE_HaomaFull#2037771100,Lower City Jahandar Drop,HaomaFragment,Loot,2037771100,Amount = 4 for full soma tree flower
+42,GPE_HaomaFull#2037771100,Lower City Jahandar Flower Drop,HaomaFragment,Loot,2037771100,Amount = 4 for full soma tree flower
 43,"GPE_HaomaFull@(9.94, 3.54, 1.25)",Lower City Jahandar Drop Dupe,HaomaFragment,Loot,,LootManager spawn with no hash captured (revisit/reload case)
 44,"TRG_CIT_LOW_CIN_Reward_Airdash@(27.52, 31.65, 0.00)",Lower City Simurgh Feather (Dash),AirDash,Ability,,
 45,PFB_GPE_StoneOfKnowledge_BigChest_CelestialStone Variant(Clone)#1252447295,Lower City Four Royal Stars Chest,StoneOfKnowledge_Celestial,Loot,1252447295,Need to recheck? Might be Ore quest reward
@@ -66,4 +66,48 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 65,"PFB_GPE_FocusAbility_SuperShotLaser Variant(Clone)@(-23.46, 4.03, 0.25)",Depths Alternate Sargon Drop,FocusSuperShotLaser,Ability,,fuzzy check? since its guaranteed unique we can use the name
 66,"GPE_SimorghFeather@(3.94, -2.00, 0.00)",Depths Simurgh Feather (Shadow),Teleport,Ability,,
 67,"TRG_CIT_DEP_DIA_Alkara_After_Teleport_A@(84.50, 0.00, 0.00)",Depths Memory Shard Chest,MinimapEye,Quest,,
-68,"CIN_KIN_BAT_KillThemAll_END_TRG@(50.66, 7.60, 0.00)",,HealingPotion,Loot,,Might just be a healing potion refresh?
+68,"CIN_KIN_BAT_KillThemAll_END_TRG@(50.66, 7.60, 0.00)",?,HealingPotion,Loot,,Might just be a healing potion refresh?
+69,"GPE_HaomaFragment_ToSpawn@(4.98, 3.32, 1.25)",Lower City Prophecy Reward (5),HaomaFragment,Loot,,
+70,"NPC_ShopKeeper_Cartographer Young_Child Hint Seller@(169.00, 37.50, 0.00)",Lower City Hub Fariba Hint Purchase,ProgressionHint,Shop,,
+71,"NPC_ShopKeeper_Cartographer Young_Child Hint Seller@(169.00, 37.50, 0.00)",Lower City Hub Fariba Lower City Treasure Map Purchase,DLC_TreasureMap_CIT_LOW_Part1,Shop,,
+72,"NPC_ShopKeeper_Cartographer Young_Child Hint Seller@(169.00, 37.50, 0.00)",Lower City Hub Fariba Hyrcanian Treasure Map Purchase,DLC_TreasureMap_HYR_AUT,Shop,,
+73,"NPC_ShopKeeper_Cartographer Young_Child Hint Seller@(169.00, 37.50, 0.00)",Lower City Hub Fariba Sacred Archives Treasure Map Purchase,DLC_TreasureMap_SAC_SAC_Part1,Shop,,
+74,"PFB_GPE_StoneOfKnowledge_BigChest_Knight Variant(Clone)#-623646231",Depths Gleaming Lion Chest,StoneOfKnowledge_Knight,Loot,-623646231,
+75,"PFB_GPE_StoneOfKnowledge_BigChest_Knight Variant(Clone)@(30.00, 7.51, 0.25)",Catacombs Kalux Tree,WakWakHead_04_Kalux,Loot,,
+76,"PFB_GPE_StoneOfKnowledge_BigChest_Knight Variant(Clone)@(30.00, 7.51, 0.25)",,Lantern,Ability,,
+77,"PFB_GPE_StoneOfKnowledge_BigChest_Knight Variant(Clone)@(30.00, 7.51, 0.25)",,Lantern,Loot,,
+78,"PFB_GPE_LoreItem_11_Diadem@(152.00, -20.00, 0.00)",Catacombs Tiara Lore,LoreItem_11_Diadem,Loot,,
+79,"TRIG_Collectible@(121.50, -36.50, 0.50)",Catacombs Sand Jar 1 (Slide in gap in the dark),QuestItem_FrescoElement,Loot,,
+80,"PFB_GPE_StoneOfKnowledge_BigChest_ExplosiveStone Variant(Clone)#742099620",Catacombs Giant Crab Drop,StoneOfKnowledge_Explosive,Loot,742099620,
+81,"PFB_GPE_LoreItem_14_ProclamationTreaty(Clone)#-242935263",Sunken Harbour Cut Down Corpse Pickup,LoreItem_14_ProclamationTreaty,Loot,-242935263,
+82,"PFB_GPE_SeedOfKnowledge_FromChest(Clone)#1694143513",Sunken Harbour Amulet Holder Chest,SeedOfKnowledge,Loot,1694143513,
+83,"NPC_ShopKeeper_Cartographer Young_Child Map Seller@(12.00, 58.50, 1.00)",Sunken Harbour Fariba Map Purchase,SubMap_VAL_SUN,Shop,,
+84,"PFB_GPE_Skin_FromChest_Default_Chroma2(Clone)#-766707981",Sunken Harbour Coral Skin Chest,Skin_Default_Chroma2,Loot,-766707981,
+85,"PFB_GPE_LoreItem_10_TarnishedCoin@(-2.87, -35.00, 0.00)",Sunken Harbour Secret Wall Tarnished Coin Lore,LoreItem_10_TarnishedCoin,Loot,,
+86,"PFB_GPE_StoneOfKnowledge_BigChest_FinisherStone Variant(Clone)#-213513030",Sunken Harbour Verethragna's Wrath Chest,StoneOfKnowledge_Finisher,Loot,-213513030,
+87,"TRIG_Collectible@(33.75, 36.99, 0.50)",Sunken Harbour Sand Jar 1 (Wooden Wall by Elevator),QuestItem_FrescoElement,Loot,,
+88,"PFB_GPE_Token@(~24.93, -31.70, 0.00)",Sunken Harbour Xerxes Coin 1 (Between the moving spike pillars),CollectorToken,Loot,,
+89,"GPE_HaomaFragment_ToSpawn#1207742047",Sunken Harbour Mimic Chest,HaomaFragment,Loot,1207742047,
+90,"PFB_GPE_LoreItem_55_TheFallofTheHyrcanianTribe@(8.59, 29.00, 0.00)",Soma Tree Fall Of Hyrcanian Tribe Lore,LoreItem_55_TheFallofTheHyrcanianTribe,Loot,,
+91,"GPE_INT_Fresco_1@(21.00, 10.00, 0.00)",Soma Tree Head,WakWakHead_00_MamaSomaTree,Loot,,
+92,"PFB_GPE_LoreItem_35_CursedObject@(44.50, 34.00, 0.00)",Soma Tree Cursed Object Lore,LoreItem_35_CursedObject,Loot,,
+93,"TRIG_Collectible@(84.00, 32.00, 0.50)",Soma Tree Sand Jar 1 (In the Bird Fort),QuestItem_FrescoElement,Loot,,
+94,"NPC_ShopKeeper_Cartographer Young_Child  Map Seller@(16.00, 27.00, 1.00)",Soma Tree Fariba Map,SubMap_HYR_SOM,Shop,,
+95,"PFB_GPE_Token@(~17.20, 140.32, 0.00)",Soma Tree Xerxes Coin 1 (By The Tower of Silence),CollectorToken,Loot,,
+96,"PFB_GPE_FocusAbility_GroundSlam Variant(Clone)@(25.18, 7.86, 0.25)",Soma Tree Double Alternate Sargon Drop,FocusGroundSlam,Ability,,
+97,"PFB_GPE_StoneOfKnowledge_BigChest_DodgeMaster Variant(Clone)#-743085454",Soma Tree Elusive Water Chest,StoneOfKnowledge_DodgeMaster,Loot,-743085454,
+98,"PFB_GPE_Token@(~77.59, 25.48, 0.00)",Soma Tree Xerxes Coin 2 (Leaf and Thorn Platforming),CollectorToken,Loot,,
+99,"FPB_GPE_DamascusOre_ToInstanciate@(6.75, 21.00, 0.00)",Soma Tree Damascus Ingot,DamascusOre,Loot,,
+100,"PFB_GPE_LoreItem_59_01BotanyLogsOfCyrusAfshin@(26.00, 65.00, 0.00)",Soma Tree Bramble Tower Botany Logs of Cyrus Log 1 Pickup,LoreItem_59_01BotanyLogsOfCyrusAfshin,Loot,,
+101,"GPE_HaomaFull#-495084234",Soma Tree Kiana Flower Drop,HaomaFragment,Loot,-495084234,(4 Soma Petals)
+102,"GPE_SimorghFeather@(63.02, 22.51, 0.00)",Soma Tree Simurgh Feather (Dimensional Claw) ,Warp,Ability,,
+103,"TRG_Chamrosh_GiveReward@(65.00, 9.00, 0.00)",Soma Tree Wolf Gift by Tree,StoneOfKnowledge_CounterAttack,Loot,,
+111,"FPB_GPE_DamascusOre_FromChest(Clone)#559433417",Soma Tree Three Statues Puzzle Chest,DamascusOre,Loot,559433417,
+112,"PFB_GPE_StoneOfKnowledge_BigChest_BowMultiShotStone Variant(Clone)#987778055",Sunken Harbour White Peacock Chest (Secret Sliding Spikes),StoneOfKnowledge_BowMultiShot,Loot,987778055,
+113,"TRIG_Collectible@(54.50, 7.50, 0.50)",Sunken Harbour Sand Jar 2 (After Bottom Right Giant Crab),QuestItem_FrescoElement,Loot,,
+114,"PFB_GPE_LoreItem_19_RustedHook@(43.00, 5.00, 0.00)",Sunken Harbour By Orod Cutscene Rusted Hook Lore,LoreItem_19_RustedHook,Loot,,
+115,"PFB_GPE_LoreItem_52_PiratesSeaShanty@(21.01, 2.50, 0.00)",Sunken Harbour Captain's Lair Lore Pickup,LoreItem_52_PiratesSeaShanty,Loot,,
+116,"PFB_GPE_Parrot@(26.77, 15.47, 0.00)",Sunken Harbour Captain's Lair Parrot,QuestItem_Parrot,Loot,,
+117,"PFB_GPE_Token_ToSpawnByLootManager@(~32.43, 5.45, 0.22)",Sunken Harbour Parrot Quest Xerxes Coin,CollectorToken,Loot,,"LootManager spawn with no hash captured (revisit/reload case)"
+118,"FPB_GPE_DamascusOre_FromChest(Clone)#-1385252770",Sunken Harbour Behind Explosive Secret Wall Chest (Damascus Ingot),DamascusOre,Loot,-1385252770,
+119,"PFB_GPE_StoneOfKnowledge_BigChest_ThunderStone Variant(Clone)#-1672324444",Sunken Harbour Thunder Charm Chest,StoneOfKnowledge_Thunder,Loot,-1672324444,

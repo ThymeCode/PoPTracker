@@ -73,3 +73,30 @@ id,itemId,itemName,amount
 72,LoreItem_13_PersianTale,Persian Tale Lore,1
 73,FocusSuperShotLaser,Arash's Ray,1
 74,Teleport,Shadow of the Simurgh (Ability),1
+75,DLC_TreasureMap_CIT_LOW_Part1,Lower City Treasure Map 1,1
+76,DLC_TreasureMap_HYR_AUT,Hyrcanian Forest Treasure Map 1,1
+77,DLC_TreasureMap_SAC_SAC_Part1,Sacred Archives Treasure Map 1,1
+78,StoneOfKnowledge_Knight,Gleaming Lion Amulet,1
+79,WakWakHead_04_Kalux,Kalux Head,1
+80,Lantern,,1
+81,LoreItem_11_Diadem,Tiara Lore,1
+82,StoneOfKnowledge_Explosive,Agony Amulet,1
+83,LoreItem_14_ProclamationTreaty,Proclamation Treaty Lore,1
+84,SubMap_VAL_SUN,Sunken Harbour Map,1
+85,Skin_Default_Chroma2,Coral Skin,1
+86,LoreItem_10_TarnishedCoin,Tarnished Coin Lore,1
+87,StoneOfKnowledge_Finisher,Verethragna's Wrath Amulet,1
+88,LoreItem_55_TheFallofTheHyrcanianTribe,The Fall of the Hycanian Tribe Lore,1
+89,WakWakHead_00_MamaSomaTree,Soma Tree Head,1
+90,LoreItem_35_CursedObject,Cursed Object Lore,1
+91,SubMap_HYR_SOM,Soma Tree Map,1
+92,FocusGroundSlam,Hadhayan's Might,1
+93,StoneOfKnowledge_DodgeMaster,Elusive Water Amulet,1
+94,LoreItem_59_01BotanyLogsOfCyrusAfshin,Botan Logs of Cyrus Log 1,1
+95,Warp,Dimensional Claw (Ability),1
+96,StoneOfKnowledge_CounterAttack,Turning Wind Amulet,1
+100,StoneOfKnowledge_BowMultiShot,White Peacock Amulet,1
+101,LoreItem_19_RustedHook,Rusted Hook Lore,1
+102,LoreItem_52_PiratesSeaShanty,Pirate Sea Shanty Lore,1
+103,QuestItem_Parrot,Parrot,1
+104,StoneOfKnowledge_Thunder,Thunder Charm Amulet,1
