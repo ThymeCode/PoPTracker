@@ -258,8 +258,8 @@ namespace PoPTracker
             // collection positions. Add to this list as new cases are found.
             private static readonly string[] JitteredPatterns = { "PFB_GPE_Token" };
 
-            // Severely reduced tolerance to avoid false merges. Original 8f was too large.
-            private const float ToleranceUnits = 3f;
+            // Severely reduced tolerance to avoid false merges. Original 8f was too large. 3f was also too large.
+            private const float ToleranceUnits = 1f;
 
             // name -> list of (position, canonical key) already seen this session
             // (plus seeded from existing CSV rows on load).

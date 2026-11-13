@@ -125,3 +125,12 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 133,"NPC_ShopKeeper_Cartographer Young_Child Map Seller@(-23.50, -20.00, 1.00)",Depths Fariba Map Purchase,SubMap_CIT_DEP_Part1,Shop,,
 134,"PFB_GPE_Token@(~20.91, -15.04, 0.00)",I have no idea (Maybe the lantern following you?),Lantern,Ability,,????
 135,"PFB_GPE_Token@(~26.76, -17.56, 0.00)",Depths Xerxes Coin 5 (By Moon Gatherer),CollectorToken,Loot,,
+136,"GPE_HaomaFragment_ToSpawn#1801590133",Sacred Archives Matching Mad Men Puzzle Chest,HaomaFragment,Loot,1801590133,
+137,"PFB_GPE_LoreItem_26_PrisonerChains@(5.50, -39.00, 0.00)",Sacred Archives Prison Broken Chains Pickup,LoreItem_26_PrisonerChains,Loot,,
+138,"TRIG_Collectible@(44.00, -34.00, 0.50)",Sacred Archives Prison Sand Jar 1 (Doesn't need key),QuestItem_FrescoElement,Loot,,
+139,"PFB_GPE_LoreItem_42_01Placeholder_1@(11.25, 11.00, 0.00)",Sacred Archives Rock Shaped Like Eye Pickup,LoreItem_42_Placeholder_01,Loot,,
+140,"TRIG_Collectible@(26.50, 19.00, 0.50)",Sacred Archives Tower of Knowledge Sand Jar 1 (By two elevators),QuestItem_FrescoElement,Loot,,
+141,"FPB_GPE_DamascusOre_FromChest(Clone)#-1020369158",Sacred Archives Tower of Knowledge Azure Damascus 1 (Chest behind gauntlet fight),DamascusOre,Loot,-1020369158,
+142,"PFB_GPE_LoreItem_46_LastDayAtWork@(-47.65, -48.00, 0.00)",Sacred Archives Tower of Knowledge Last Day At Work Pickup,LoreItem_46_LastDayAtWork,Loot,,
+143,"PFB_GPE_Token_1@(~-41.99, 6.53, 0.00)",Sacred Archives Tower of Knowledge Xerxes Coin 1 (Slamming blocks platforming),CollectorToken,Loot,,
+144,"PFB_GPE_Token@(~24.07, 6.41, 0.00)",Sacred Archives Tower of Knowledge Xerxes Coin 2 (Directional Platforms Platforming),CollectorToken,Loot,,
