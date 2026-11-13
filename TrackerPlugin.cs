@@ -258,9 +258,8 @@ namespace PoPTracker
             // collection positions. Add to this list as new cases are found.
             private static readonly string[] JitteredPatterns = { "PFB_GPE_Token" };
 
-            // Wide on purpose — deliberately generous per the known issue that
-            // stronger movement options later in the game increase the spread.
-            private const float ToleranceUnits = 8f;
+            // Severely reduced tolerance to avoid false merges. Original 8f was too large.
+            private const float ToleranceUnits = 3f;
 
             // name -> list of (position, canonical key) already seen this session
             // (plus seeded from existing CSV rows on load).
@@ -283,9 +282,11 @@ namespace PoPTracker
 
                 foreach (var (knownPos, knownKey) in list)
                 {
-                    if (Vector3.Distance(knownPos, pos) <= ToleranceUnits)
+                    float d = Vector3.Distance(knownPos, pos);
+                    if (d <= ToleranceUnits)
                     {
-                        return knownKey; // treat as the same location through key reuse
+                        TrackLog.Log($"FuzzyLocationMatcher: {name} at ({pos.x:F2}, {pos.y:F2}) merged into {knownKey} (dist {d:F1})");
+                        return knownKey;
                     }
                 }
 

@@ -100,3 +100,9 @@ id,itemId,itemName,amount
 102,LoreItem_52_PiratesSeaShanty,Pirate Sea Shanty Lore,1
 103,QuestItem_Parrot,Parrot,1
 104,StoneOfKnowledge_Thunder,Thunder Charm Amulet,1
+105,StoneOfKnowledge_Wealth,Ard's Fortune Amulet,1
+106,StoneOfKnowledge_TeleportShockWave,Shockwave Amulet,1
+107,StoneOfKnowledge_Focus,Ayar Amulet,1
+108,LoreItem_45_NurseryRhymeOnAToy,Nursery Rhyme Lore,1
+109,StoneOfKnowledge_DareDevil,Indomitable Spirit Amulet,1
+110,SubMap_CIT_DEP_Part1,Depths Map,1

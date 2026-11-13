@@ -111,3 +111,17 @@ Id,Location,LocationName,itemId,Acquisition,Hash,Notes
 117,"PFB_GPE_Token_ToSpawnByLootManager@(~32.43, 5.45, 0.22)",Sunken Harbour Parrot Quest Xerxes Coin,CollectorToken,Loot,,"LootManager spawn with no hash captured (revisit/reload case)"
 118,"FPB_GPE_DamascusOre_FromChest(Clone)#-1385252770",Sunken Harbour Behind Explosive Secret Wall Chest (Damascus Ingot),DamascusOre,Loot,-1385252770,
 119,"PFB_GPE_StoneOfKnowledge_BigChest_ThunderStone Variant(Clone)#-1672324444",Sunken Harbour Thunder Charm Chest,StoneOfKnowledge_Thunder,Loot,-1672324444,
+120,"PFB_GPE_StoneOfKnowledge_BigChest_Wealth Variant(Clone)#1222474936",Sunken Harbour Tic Tac Toe Chest,StoneOfKnowledge_Wealth,Loot,1222474936,
+121,"PFB_GPE_Token@(~22.06, 8.06, 0.00)",Sunken Harbour Xerxes Coin 2 (Chakram Platforming Puzzle),CollectorToken,Loot,,
+122,"PFB_GPE_StoneOfKnowledge_BigChest_TeleportShockWaveStone Variant(Clone)#22602286",Catacombs Glowing Heads Puzzle Chest,StoneOfKnowledge_TeleportShockWave,Loot,22602286,
+123,"PFB_GPE_StoneOfKnowledge_BigChest_FocusStone Variant(Clone)#467823176",Catacombs Ayar Amulet Chest (Behind Mouth Door),StoneOfKnowledge_Focus,Loot,467823176,
+124,"TRIG_Collectible@(14.50, 25.00, 0.50)",Depths Sand Jar 2 (Near Warp Altar),QuestItem_FrescoElement,Loot,,
+127,"PFB_GPE_LoreItem_45_NurseryRhymeOnAToy@(-97.50, -5.00, 0.00)",Depths Nursery Rhyme (Past Undead Erlik),LoreItem_45_NurseryRhymeOnAToy,Loot,,
+128,"PFB_GPE_StoneOfKnowledge_BigChest_DareDevilStone Variant(Clone)#-1134186415",Depths Mother Drop,StoneOfKnowledge_DareDevil,Loot,-1134186415,
+129,"GPE_HaomaFragment_ToInstanciate@(43.25, -23.50, 1.00)",Depths Freestanding Soma Tree Petal,HaomaFragment,Loot,,
+130,"PFB_GPE_StoneOfKnowledge_BigChest_DareDevilStone Variant(Clone)@(-58.79, -4.96, 0.25)",Depths Mother Drop (Reload),StoneOfKnowledge_DareDevil,Loot,,"LootManager spawn with no hash captured (revisit/reload case)"
+131,"PFB_GPE_Token_2@(~28.28, -4.14, 0.00)",Depths Xerxes Coin 3 (Double Coin Platforming 1),CollectorToken,Loot,,
+132,"PFB_GPE_Token_3@(~28.28, -3.14, 0.00)",Depths Xerxes Coin 4 (Double Coin Platforming 2),CollectorToken,Loot,,
+133,"NPC_ShopKeeper_Cartographer Young_Child Map Seller@(-23.50, -20.00, 1.00)",Depths Fariba Map Purchase,SubMap_CIT_DEP_Part1,Shop,,
+134,"PFB_GPE_Token@(~20.91, -15.04, 0.00)",I have no idea (Maybe the lantern following you?),Lantern,Ability,,????
+135,"PFB_GPE_Token@(~26.76, -17.56, 0.00)",Depths Xerxes Coin 5 (By Moon Gatherer),CollectorToken,Loot,,
