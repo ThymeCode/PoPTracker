@@ -95,17 +95,23 @@ id,itemId,itemName,amount
 94,LoreItem_59_01BotanyLogsOfCyrusAfshin,Botan Logs of Cyrus Log 1,1
 95,Warp,Dimensional Claw (Ability),1
 96,StoneOfKnowledge_CounterAttack,Turning Wind Amulet,1
-100,StoneOfKnowledge_BowMultiShot,White Peacock Amulet,1
-101,LoreItem_19_RustedHook,Rusted Hook Lore,1
-102,LoreItem_52_PiratesSeaShanty,Pirate Sea Shanty Lore,1
-103,QuestItem_Parrot,Parrot,1
-104,StoneOfKnowledge_Thunder,Thunder Charm Amulet,1
-105,StoneOfKnowledge_Wealth,Ard's Fortune Amulet,1
-106,StoneOfKnowledge_TeleportShockWave,Shockwave Amulet,1
-107,StoneOfKnowledge_Focus,Ayar Amulet,1
-108,LoreItem_45_NurseryRhymeOnAToy,Nursery Rhyme Lore,1
-109,StoneOfKnowledge_DareDevil,Indomitable Spirit Amulet,1
-110,SubMap_CIT_DEP_Part1,Depths Map,1
-111,LoreItem_26_PrisonerChains,Broken Chains,1
-112,LoreItem_42_Placeholder_01,Note Pinned to a Rock Shaped Like an Eye Lore,1
-113,LoreItem_46_LastDayAtWork,Last Day at Work Lore,1
+97,StoneOfKnowledge_BowMultiShot,White Peacock Amulet,1
+98,LoreItem_19_RustedHook,Rusted Hook Lore,1
+99,LoreItem_52_PiratesSeaShanty,Pirate Sea Shanty Lore,1
+100,QuestItem_Parrot,Parrot,1
+101,StoneOfKnowledge_Thunder,Thunder Charm Amulet,1
+102,StoneOfKnowledge_Wealth,Ard's Fortune Amulet,1
+103,StoneOfKnowledge_TeleportShockWave,Shockwave Amulet,1
+104,StoneOfKnowledge_Focus,Ayar Amulet,1
+105,LoreItem_45_NurseryRhymeOnAToy,Nursery Rhyme Lore,1
+106,StoneOfKnowledge_DareDevil,Indomitable Spirit Amulet,1
+117,SubMap_CIT_DEP_Part1,Depths Map,1
+108,LoreItem_26_PrisonerChains,Broken Chains,1
+109,LoreItem_42_Placeholder_01,Note Pinned to a Rock Shaped Like an Eye Lore,1
+110,LoreItem_46_LastDayAtWork,Last Day at Work Lore,1
+111,ClairVoyance,Clairvoyance,1
+112,QuestItem_ArchivesKey,Holy Scholarship Key,1
+118,FocusAntiAir,Shabaz' Spirit,1
+119,LoreItem_05_PrisonerCarvedStatue,Crudely Carved Statue Lore,1
+120,LoreItem_48_Missive_02,Missive 2 Lore,1
+121,SubMap_SAC_SAC_Part2,Sacred Archives Temple of Knowledge Map,1

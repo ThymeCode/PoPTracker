@@ -37,6 +37,9 @@ namespace PoPTracker
             EItemType.Crystal,
             EItemType.SmallHealthDrop,
             EItemType.Arrow,
+            EItemType.MediumHealthDrop,
+            EItemType.BigHealthDrop,
+            EItemType.HealingPotion,
         };
         internal static readonly HashSet<EPlayerUnlockableAbility> ExcludedAbilities = new HashSet<EPlayerUnlockableAbility>
         {
